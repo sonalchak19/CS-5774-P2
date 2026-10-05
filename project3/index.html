@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simmer — Recipes from what you already have</title>
+  <meta name="description" content="Simmer helps college students find recipes using the ingredients and dorm-friendly equipment they already have.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Header: contains the site logo, main navigation, and account link. -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Simmer
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="list.html">Browse</a></li>
+          <li><a href="add.html">Add Recipe</a></li>
+        </ul>
+      </nav>
+
+      <!-- Simulated recipe-name search: submits the phrase (as ?q=...) to search.html -->
+      <form class="header-search" action="search.html" method="get" role="search">
+        <label for="site-search" class="visually-hidden">Search recipes by name</label>
+        <input type="text" id="site-search" name="q" placeholder='Search recipes, try "pasta"'>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="header-account">
+        <a class="btn-account" href="home-loggedin.html">Log In / Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Hero section: introduces the purpose of Simmer and puts the main search form near the top. -->
+      <section class="hero">
+        <div class="hero-intro">
+          <h1>Cook something good with what's already in your mini-fridge.</h1>
+          <p>Simmer is a recipe finder built for dorm and apartment kitchens. Tell us what you have and what you can cook with, and we'll show you recipes that actually work with a microwave, kettle, or rice cooker — no stove required.</p>
+        </div>
+
+        <!-- Search card: users enter ingredients and choose the equipment they have. -->
+        <div class="search-card">
+          <h2>What do you have?</h2>
+          <form action="list.html" method="get">
+            <div class="field">
+              <label for="ingredients">Ingredients</label>
+              <input type="text" id="ingredients" name="ingredients" placeholder="e.g. broccoli, pasta, lemon, eggs">
+              <span class="hint">Separate ingredients with commas.</span>
+            </div>
+
+            <!-- Equipment uses checkboxes because users can select multiple options. -->
+            <div class="field">
+              <span>Equipment</span>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="equipment" value="microwave"> Microwave</label>
+                <label><input type="checkbox" name="equipment" value="kettle"> Kettle</label>
+                <label><input type="checkbox" name="equipment" value="rice-cooker"> Rice Cooker</label>
+                <label><input type="checkbox" name="equipment" value="no-heat"> No Heat Needed</label>
+                <label><input type="checkbox" name="equipment" value="hot-plate"> Hot Plate</label>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Find Recipes</button>
+              <button type="reset" class="btn-reset">Clear all</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Logged-out users are encouraged to create an account for personalized features. -->
+      <p class="signup-banner">
+        <strong>Sign up</strong> to save favorite recipes and pool ingredients with your roommates.
+      </p>
+
+      <!-- Popular recipes give users a way to browse without entering a search. -->
+      <section aria-labelledby="popular-heading">
+        <h2 id="popular-heading">Popular Recipes</h2>
+        <div class="recipe-grid">
+
+          <article class="recipe-card">
+            <!-- Photo by Monica Lensink, from nourish and fete -->
+            <img src="images/pasta-dish.webp" alt="A bowl of broccoli lemon pasta with garlic and lemon wedges">
+            <div class="recipe-card-body">
+              <h3><a href="detail.html">Broccoli Lemon Pasta</a></h3>
+              <p class="ingredients-preview">Pasta, broccoli, lemon, garlic</p>
+              <div class="recipe-meta">
+                <span class="tag">Microwave-only</span>
+                <span>15 min</span>
+                <span class="rating">★★★★☆ 4.2</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+                <button type="button" class="btn btn-secondary save-btn" aria-pressed="false">Save</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <!-- Photo by Laura Sandford, from joy food sunshine -->
+            <img src="images/cobbler-dish.png" alt="A baking dish of peach cobbler with cinnamon and steam rising">
+            <div class="recipe-card-body">
+              <h3><a href="detail.html">Peach Cobbler</a></h3>
+              <p class="ingredients-preview">Peaches, oats, cinnamon, butter</p>
+              <div class="recipe-meta">
+                <span class="tag">Rice Cooker</span>
+                <span>25 min</span>
+                <span class="rating">★★★★★ 4.8</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+                <button type="button" class="btn btn-secondary save-btn" aria-pressed="false">Save</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer: contains basic site links that are repeated across pages. -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Simmer</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#help">Help / FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- jQuery (library) then our own script; no inline scripts on the page -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/interactions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add a Recipe — Simmer</title>
+  <meta name="description" content="Submit a new dorm-friendly recipe to Simmer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared site header. Add Recipe is marked as the current page. -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Simmer
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="list.html">Browse</a></li>
+          <li><a href="add.html" aria-current="page">Add Recipe</a></li>
+        </ul>
+      </nav>
+
+      <!-- Simulated recipe-name search: submits the phrase (as ?q=...) to search.html -->
+      <form class="header-search" action="search.html" method="get" role="search">
+        <label for="site-search" class="visually-hidden">Search recipes by name</label>
+        <input type="text" id="site-search" name="q" placeholder='Search recipes, try "pasta"'>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="header-account">
+        <a class="btn-account" href="home-loggedin.html">Log In / Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- The required-field note explains the asterisk used throughout the form. -->
+      <h1>Add a Recipe</h1>
+      <p class="required-note">Fields marked with <span class="required-mark">*</span> are required.</p>
+
+      <!-- Recipe submission form. HTML required/min attributes provide basic client-side validation. -->
+      <form action="list.html" method="post">
+        <div class="field">
+          <label for="title">Recipe Title <span class="required-mark">*</span></label>
+          <input type="text" id="title" name="title" required placeholder="e.g. Garlic Butter Rice with Chicken">
+        </div>
+
+        <div class="field">
+          <label for="ingredients">Ingredients <span class="required-mark">*</span></label>
+          <textarea id="ingredients" name="ingredients" required placeholder="List one ingredient per line, e.g.&#10;1 cup rice&#10;2 tbsp butter&#10;2 cloves garlic"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="steps">Steps / Instructions <span class="required-mark">*</span></label>
+          <textarea id="steps" name="steps" required placeholder="Describe each step, e.g.&#10;1. Cook rice in the rice cooker.&#10;2. Stir in butter and garlic once done."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="time">Estimated Time (minutes) <span class="required-mark">*</span></label>
+          <input type="number" id="time" name="time" min="1" required placeholder="e.g. 20">
+        </div>
+        
+        <!-- Multiple equipment tags can be selected with checkboxes. -->
+        <div class="field">
+          <span>Equipment Tags</span>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="equipment" value="microwave"> Microwave</label>
+            <label><input type="checkbox" name="equipment" value="kettle"> Kettle</label>
+            <label><input type="checkbox" name="equipment" value="rice-cooker"> Rice Cooker</label>
+            <label><input type="checkbox" name="equipment" value="no-heat"> No Heat Needed</label>
+            <label><input type="checkbox" name="equipment" value="hot-plate"> Hot Plate</label>
+          </div>
+        </div>
+
+        <!-- Users can cancel, post immediately, or save the recipe as a draft. -->
+        <div class="form-actions">
+          <a class="btn btn-secondary" href="index.html">Cancel</a>
+          <button type="submit" class="btn btn-primary">Post Recipe</button>
+          <button type="submit" class="btn btn-secondary" name="draft" value="true">Save as Draft</button>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Footer uses the same links as the other pages. -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Simmer</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#help">Help / FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- jQuery (library) then our own script; no inline scripts on the page -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

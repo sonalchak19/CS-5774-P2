@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results — Simmer</title>
+  <meta name="description" content="Search results for recipes on Simmer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header: same layout as the Browse page, including the search box -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Simmer
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="list.html">Browse</a></li>
+          <li><a href="add.html">Add Recipe</a></li>
+        </ul>
+      </nav>
+
+      <form class="header-search" action="search.html" method="get" role="search">
+        <label for="site-search" class="visually-hidden">Search recipes by name</label>
+        <input type="text" id="site-search" name="q" placeholder='Search recipes, try "pasta"'>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="header-account">
+        <a class="btn-account" href="home-loggedin.html">Log In / Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <h1>Search results</h1>
+
+      <!-- search.js fills this in: either the simulated results or a friendly error -->
+      <p id="search-summary"></p>
+      <div id="search-results" aria-live="polite"></div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Simmer</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#help">Help / FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simmer — Browse Recipes</title>
+  <meta name="description" content="Browse and filter recipes on Simmer by ingredients, equipment, and time.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header and navigation are shared with the other pages. -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Simmer
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="list.html" aria-current="page">Browse</a></li>
+          <li><a href="add.html">Add Recipe</a></li>
+        </ul>
+      </nav>
+
+      <!-- Simulated recipe-name search: submits the phrase (as ?q=...) to search.html -->
+      <form class="header-search" action="search.html" method="get" role="search">
+        <label for="site-search" class="visually-hidden">Search recipes by name</label>
+        <input type="text" id="site-search" name="q" placeholder='Search recipes, try "pasta"'>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="header-account">
+        <a class="btn-account" href="home-loggedin.html">Log In / Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <h1>Recipes for what you've got</h1>
+
+      <!-- Search/filter form lets users narrow recipes based on what they have. -->
+      <section class="filters" aria-labelledby="filters-heading">
+        <h2 id="filters-heading" class="visually-hidden" style="position:absolute;left:-9999px;">Filter recipes</h2>
+        <form action="list.html" method="get">
+          <div class="field">
+            <label for="ingredients">Ingredients</label>
+            <input type="text" id="ingredients" name="ingredients" value="broccoli, pasta, lemon, peaches, sugar, chicken">
+          </div>
+
+          <!-- Checkboxes allow multiple equipment choices at once. -->
+          <div class="field">
+            <span>Equipment</span>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="equipment" value="microwave" checked> Microwave</label>
+              <label><input type="checkbox" name="equipment" value="kettle"> Kettle</label>
+              <label><input type="checkbox" name="equipment" value="rice-cooker"> Rice Cooker</label>
+              <label><input type="checkbox" name="equipment" value="no-heat"> No Heat Needed</label>
+              <label><input type="checkbox" name="equipment" value="hot-plate"> Hot Plate</label>
+            </div>
+          </div>
+
+          <!-- Time and sorting controls are grouped together to keep filtering organized. -->
+          <div class="filters-row">
+            <div class="filter-group">
+              <label for="time">Time</label>
+              <select id="time" name="time">
+                <option value="any">Any time</option>
+                <option value="10">Under 10 mins</option>
+                <option value="20">Under 20 mins</option>
+                <option value="30">Under 30 mins</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="sort">Sort by</label>
+              <!-- "Prep Time" removed from sort options per peer feedback,
+                   since the Time filter above already covers prep time. -->
+              <select id="sort" name="sort">
+                <option value="rating">Rating</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Search</button>
+              <button type="reset" class="btn-reset">Clear filters</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Results count gives feedback about the current search. -->
+      <p class="results-bar">
+        <span>3 recipes found</span>
+      </p>
+
+      <!-- Each recipe is displayed as a reusable recipe-card component. -->
+      <div class="recipe-grid">
+
+        <article class="recipe-card">
+          <!-- Photo by Monica Lensink, from nourish and fete -->
+            <img src="images/pasta-dish.webp" alt="A bowl of broccoli lemon pasta with garlic and lemon wedges">
+            <div class="recipe-card-body">
+              <h3><a href="detail.html">Broccoli Lemon Pasta</a></h3>
+              <p class="ingredients-preview">Pasta, broccoli, lemon, garlic</p>
+              <div class="recipe-meta">
+                <span class="tag">Microwave-only</span>
+                <span>15 min</span>
+                <span class="rating">★★★★☆ 4.2</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+                <button type="button" class="btn btn-secondary save-btn" aria-pressed="false">Save</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <!-- Photo by Laura Sandford, from joy food sunshine -->
+            <img src="images/cobbler-dish.png" alt="A baking dish of peach cobbler with cinnamon and steam rising">
+            <div class="recipe-card-body">
+            <h3><a href="detail.html">Peach Cobbler</a></h3>
+            <p class="ingredients-preview">Peaches, oats, cinnamon, butter</p>
+            <div class="recipe-meta">
+              <span class="tag">Rice Cooker</span>
+              <span>25 min</span>
+              <span class="rating">★★★★★ 4.8</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+              <button type="button" class="btn btn-secondary save-btn" aria-pressed="false">Save</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="recipe-card">
+          <!-- Photo by Christina Cherrier, from eatwell 101 -->
+          <img src="images/garlic.webp" alt="A rice cooker bowl of garlic butter rice with chicken">
+          <div class="recipe-card-body">
+            <h3><a href="detail.html">Garlic Butter Rice with Chicken</a></h3>
+            <p class="ingredients-preview">Rice, chicken, garlic, butter</p>
+            <div class="recipe-meta">
+              <span class="tag">Rice Cooker</span>
+              <span>30 min</span>
+              <span class="rating">★★★★☆ 4.0</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+              <button type="button" class="btn btn-secondary save-btn" aria-pressed="false">Save</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Placeholder for loading additional recipes. -->
+      <div class="load-more">
+        <button type="button" class="btn btn-secondary">Load More…</button>
+      </div>
+
+    </div>
+  </main>
+  
+  <!-- Footer stays consistent with the rest of the site. -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Simmer</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#help">Help / FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- jQuery (library) then our own script; no inline scripts on the page -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/interactions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Broccoli Lemon Pasta — Simmer</title>
+  <meta name="description" content="A 15-minute microwave-only broccoli lemon pasta recipe, with ratings and comments from other students.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared site header and navigation. Browse is marked as the current section. -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Simmer
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="list.html" aria-current="page">Browse</a></li>
+          <li><a href="add.html">Add Recipe</a></li>
+        </ul>
+      </nav>
+
+      <!-- Simulated recipe-name search: submits the phrase (as ?q=...) to search.html -->
+      <form class="header-search" action="search.html" method="get" role="search">
+        <label for="site-search" class="visually-hidden">Search recipes by name</label>
+        <input type="text" id="site-search" name="q" placeholder='Search recipes, try "pasta"'>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="header-account">
+        <a class="btn-account" href="home-loggedin.html">Log In / Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Back link was added so users can easily return to the recipe results. -->
+      <a class="back-link" href="list.html">&larr; Back to results</a>
+
+      <!-- Recipe header contains the title, basic information, and favorite action. -->
+      <div class="recipe-header">
+        <div>
+          <h1>Broccoli Lemon Pasta</h1>
+          <div class="recipe-meta">
+            <span class="tag">Microwave-only</span>
+            <span>15 min</span>
+            <span class="rating">★★★★☆ 4.2 (12 ratings)</span>
+          </div>
+        </div>
+        <button type="button" class="favorite-btn">☆ Save to Favorites</button>
+      </div>
+
+      <!-- Main recipe content: ingredients/instructions on the left and extra information on the right. -->
+      <div class="recipe-body">
+        <div>
+          <!-- Photo by Monica Lensink, from nourish and fete -->
+          <img class="recipe-photo" src="images/pasta-dish.webp" alt="A bowl of broccoli lemon pasta with garlic and lemon wedges">
+
+          <h2>Ingredients</h2>
+          <ul class="ingredients-list">
+            <li>1 cup pasta</li>
+            <li>1 cup broccoli florets</li>
+            <li>1 lemon, juiced</li>
+            <li>2 cloves garlic, minced</li>
+            <li>Salt and pepper, to taste</li>
+          </ul>
+
+          <h2>Steps</h2>
+          <ol class="steps-list">
+            <li>Microwave pasta with water for 8 minutes.</li>
+            <li>Add broccoli and microwave for 3 more minutes.</li>
+            <li>Drain, then stir in lemon juice and garlic.</li>
+            <li>Season with salt and pepper, and serve.</li>
+          </ol>
+        </div>
+
+        <aside>
+          <h2>Why students like it</h2>
+          <p>This is a go-to when the semester gets busy: it only needs a microwave and one bowl, and it uses up broccoli and a lemon before they go bad in the mini-fridge.</p>
+        </aside>
+      </div>
+
+      <!-- Rating control is placed directly next to the comments below,
+           since both are ways users give feedback on a recipe. -->
+      <section class="feedback-section" aria-labelledby="feedback-heading">
+        <h2 id="feedback-heading">Ratings &amp; Comments</h2>
+
+        <form class="rate-recipe" action="#" method="post">
+          <label for="star-rating">Rate this recipe</label>
+          <select id="star-rating" name="star-rating">
+            <option value="">Choose a rating</option>
+            <option value="5">5 stars</option>
+            <option value="4">4 stars</option>
+            <option value="3">3 stars</option>
+            <option value="2">2 stars</option>
+            <option value="1">1 star</option>
+          </select>
+          <button type="submit" class="btn btn-secondary">Submit Rating</button>
+        </form>
+
+        <h3>Comments (3)</h3>
+        <ul class="comment-list">
+          <li><span class="comment-author">Sam:</span>Added parmesan on top, worked great!</li>
+          <li><span class="comment-author">Jess:</span>Used lime instead of lemon, still good.</li>
+          <li><span class="comment-author">Alex:</span>Microwave times vary by wattage, mine took a bit longer.</li>
+        </ul>
+
+        <form class="comment-form" action="#" method="post">
+          <div class="field">
+            <label for="comment">Add a comment</label>
+            <textarea id="comment" name="comment" placeholder="Share a tip or substitution..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
+  
+  <!-- Footer is shared across the site for consistency. -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Simmer</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#help">Help / FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- jQuery (library) then our own script; no inline scripts on the page -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/interactions.js"></script>
+
+</body>
+</html>

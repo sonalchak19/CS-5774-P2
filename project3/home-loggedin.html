@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simmer — Your Dashboard</title>
+  <meta name="description" content="Your personalized Simmer home: pooled suite ingredients, favorites, and recently viewed recipes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header for the logged-in version of the site. The account area shows the current user. -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="home-loggedin.html">
+        <span class="logo-mark" aria-hidden="true">S</span>
+        Simmer
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="home-loggedin.html" aria-current="page">Home</a></li>
+          <li><a href="list.html">Browse</a></li>
+          <li><a href="add.html">Add Recipe</a></li>
+        </ul>
+      </nav>
+
+      <!-- Simulated recipe-name search: submits the phrase (as ?q=...) to search.html -->
+      <form class="header-search" action="search.html" method="get" role="search">
+        <label for="site-search" class="visually-hidden">Search recipes by name</label>
+        <input type="text" id="site-search" name="q" placeholder='Search recipes, try "pasta"'>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      <div class="header-account">
+        <span>👤 Alex</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Personalized heading makes this page different from the public home page. -->
+      <h1>Welcome back, Alex</h1>
+
+      <section class="search-card" aria-labelledby="search-heading">
+        <h2 id="search-heading">What do you have?</h2>
+        <form action="list.html" method="get">
+          <div class="field">
+            <label for="ingredients">Ingredients</label>
+            <input type="text" id="ingredients" name="ingredients" placeholder="e.g. eggs, rice, broccoli">
+            <span class="hint">Separate ingredients with commas.</span>
+          </div>
+
+          <div class="field">
+            <span>Equipment</span>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="equipment" value="microwave"> Microwave</label>
+              <label><input type="checkbox" name="equipment" value="kettle"> Kettle</label>
+              <label><input type="checkbox" name="equipment" value="rice-cooker"> Rice Cooker</label>
+              <label><input type="checkbox" name="equipment" value="no-heat"> No Heat Needed</label>
+              <label><input type="checkbox" name="equipment" value="hot-plate"> Hot Plate</label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Find Recipes</button>
+            <button type="reset" class="btn-reset">Clear all</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Shared ingredients section: these are ingredients available to people in the same suite. -->
+      <section class="pooled-ingredients" aria-labelledby="pooled-heading">
+        <div class="section-heading">
+          <h2 id="pooled-heading">Your Suite's Shared Ingredients</h2>
+          <a href="#edit-shared">Edit</a>
+        </div>
+        <ul>
+          <li>Eggs</li>
+          <li>Rice</li>
+          <li>Broccoli</li>
+          <li>Peaches</li>
+          <li>Butter</li>
+        </ul>
+      </section>
+
+      <!-- Favorites and recently viewed recipes are shown as dashboard sections. -->
+      <section class="dashboard-section" aria-labelledby="favorites-heading">
+        <div class="section-heading">
+          <h2 id="favorites-heading">Your Favorites</h2>
+          <a href="list.html">See all</a>
+        </div>
+        <div class="dashboard-grid recipe-grid">
+          <article class="recipe-card">
+            <!-- Photo by Monica Lensink, from nourish and fete -->
+            <img src="images/pasta-dish.webp" alt="A bowl of broccoli lemon pasta with garlic and lemon wedges">
+            <div class="recipe-card-body">
+              <h3><a href="detail.html">Broccoli Lemon Pasta</a></h3>
+              <p class="ingredients-preview">Pasta, broccoli, lemon, garlic</p>
+              <div class="recipe-meta">
+                <span class="tag">Microwave-only</span>
+                <span>15 min</span>
+                <span class="rating">★★★★☆ 4.2</span>
+              </div>
+              <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+            </div>
+          </article>
+
+          <article class="recipe-card">
+            <!-- Photo by Laura Sandford, from joy food sunshine -->
+            <img src="images/cobbler-dish.png" alt="A baking dish of peach cobbler with cinnamon and steam rising">
+            <div class="recipe-card-body">
+              <h3><a href="detail.html">Peach Cobbler</a></h3>
+              <p class="ingredients-preview">Peaches, oats, cinnamon, butter</p>
+              <div class="recipe-meta">
+                <span class="tag">Rice Cooker</span>
+                <span>25 min</span>
+                <span class="rating">★★★★★ 4.8</span>
+              </div>
+              <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section" aria-labelledby="recent-heading">
+        <div class="section-heading">
+          <h2 id="recent-heading">Recently Viewed</h2>
+          <a href="list.html">See all</a>
+        </div>
+        <div class="dashboard-grid recipe-grid">
+          <article class="recipe-card">
+            <!-- Photo by Monica Lensink, from nourish and fete -->
+            <img src="images/pasta-dish.webp" alt="A bowl of broccoli lemon pasta with garlic and lemon wedges">
+            <div class="recipe-card-body">
+              <h3><a href="detail.html">Broccoli Lemon Pasta</a></h3>
+              <div class="recipe-meta">
+                <span class="tag">Microwave-only</span>
+                <span>15 min</span>
+              </div>
+              <a class="btn btn-secondary" href="detail.html">View Recipe</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer: same basic structure as the other pages for consistency. -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Simmer</p>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#help">Help / FAQ</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- jQuery (library) then our own script; no inline scripts on the page -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>
